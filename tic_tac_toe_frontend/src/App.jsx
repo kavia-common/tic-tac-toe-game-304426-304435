@@ -32,10 +32,13 @@ function calculateWinner(squares) {
  * @param {{ value: (null|"X"|"O"), onClick: () => void, disabled?: boolean }} props
  */
 function Square({ value, onClick, disabled = false }) {
+  const symbolClass =
+    value === "X" ? "ttt-square--x" : value === "O" ? "ttt-square--o" : "";
+
   return (
     <button
       type="button"
-      className="ttt-square"
+      className={`ttt-square ${symbolClass}`.trim()}
       onClick={onClick}
       disabled={disabled}
       aria-label={value ? `Square ${value}` : "Empty square"}
